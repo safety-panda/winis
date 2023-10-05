@@ -4,7 +4,7 @@ import Counter from "./counter";
 function App() {
   return (
     <div className="App">
-      <Counter />
+      <Counter title="Winnis Condition One" />
     </div>
   );
 }

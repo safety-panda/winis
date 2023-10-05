@@ -1,31 +1,36 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 
-const Counter = () => {
-  const [count, setcount] = useState(0);
+const Counter = ({ title = "Winis Condition Counter" }) => {
+  const [count, setCount] = useState(0);
 
-  const add = () => setcount((prev) => prev + 1);
-  const subtract = () => setcount((prev) => prev - 1);
+  const incrementCount = () => setCount((prev) => prev + 1);
+  const decrementCount = () => setCount((prev) => prev - 1);
 
   return (
     <div className="mt-5 px-3 py-4">
-      <h1 className="h1 display-1">Counter Component</h1>
+      <h1 className="h1 display-1">{title}</h1>
       <h2 className="h1 display-1 mt-5 mb-3">{count}</h2>
       <div className="mt-5">
         <button
           className="btn btn-primary btn-lg mx-3 px-5 py-3 mt-2"
-          onClick={add}
+          onClick={incrementCount}
         >
           Add
         </button>
         <button
           className="btn btn-dark btn-lg mx-3 px-5 py-3 mt-2"
-          onClick={subtract}
+          onClick={decrementCount}
         >
-          Remove
+          Subtract
         </button>
       </div>
     </div>
   );
+};
+
+Counter.propTypes = {
+  title: PropTypes.string
 };
 
 export default Counter;
